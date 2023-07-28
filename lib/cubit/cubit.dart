@@ -38,7 +38,7 @@ class NewsCubit extends Cubit<NewsStates> {
       query: {
         'country': 'sa',
         'category': 'business',
-        'apiKey': '65f7f556ec76449fa7dc7c0069f040ca'
+        'apiKey': 'b20a00633baa48ed9c7e1ce6db0b3825'
       },
     ).then((value) {
       // print(value.data['articles'][0]['title']);
@@ -60,7 +60,7 @@ class NewsCubit extends Cubit<NewsStates> {
      DioHelper.getData(url: 'v2/top-headlines', query: {
        'country': 'sa',
        'category': 'sports',
-       'apiKey': '65f7f556ec76449fa7dc7c0069f040ca'
+       'apiKey': 'b20a00633baa48ed9c7e1ce6db0b3825'
      },).then((value) {
        sports = value.data['articles'];
        print(sports[0]['title']);
@@ -83,7 +83,7 @@ class NewsCubit extends Cubit<NewsStates> {
       DioHelper.getData(url: 'v2/top-headlines', query: {
         'country': 'sa',
         'category': 'science',
-        'apiKey': '65f7f556ec76449fa7dc7c0069f040ca'
+        'apiKey': 'b20a00633baa48ed9c7e1ce6db0b3825'
       },).then((value) {
         science = value.data['articles'];
         print(science[0]['title']);
@@ -97,7 +97,6 @@ class NewsCubit extends Cubit<NewsStates> {
   }
 
 
-  bool iconBool = true;
 
 
   IconData iconLight = Icons.wb_sunny;
@@ -106,55 +105,16 @@ class NewsCubit extends Cubit<NewsStates> {
   var light = ThemeMode.light;
   var dark = ThemeMode.dark;
 
+  bool iconBool = true;
 
-  changeIconMode(){
-//  if  (iconBool==false){
-//
-// //  ThemeData lightMode = ThemeData(
-// //   primarySwatch: Colors.deepOrange,
-// //   scaffoldBackgroundColor: Colors.white,
-// //   appBarTheme: const AppBarTheme(
-// //       iconTheme: IconThemeData(color: Colors.black),
-// //       systemOverlayStyle:
-// //       SystemUiOverlayStyle(statusBarColor: Colors.red),
-// //       backgroundColor: Colors.white,
-// //       elevation: 0,
-// //       titleTextStyle: TextStyle(
-// //           color: Colors.black,
-// //           fontSize: 24,
-// //           fontWeight: FontWeight.bold)),
-// //   bottomNavigationBarTheme:const BottomNavigationBarThemeData(
-// //     type: BottomNavigationBarType.fixed,
-// //     selectedItemColor: Colors.deepOrange,
-// //     elevation: 20,
-// //   ),
-// // );
-//    iconBool = true;
-//  }
-//  else if  (iconBool==true){
-//    // ThemeData darkMode = ThemeData(
-//    //   primarySwatch: Colors.deepOrange,
-//    //   scaffoldBackgroundColor: Colors.grey,
-//    //   appBarTheme: const AppBarTheme(
-//    //       iconTheme: IconThemeData(color: Colors.white),
-//    //       systemOverlayStyle:
-//    //       SystemUiOverlayStyle(statusBarColor: Colors.red),
-//    //       backgroundColor: Colors.grey,
-//    //       elevation: 0,
-//    //       titleTextStyle: TextStyle(
-//    //           color: Colors.white,
-//    //           fontSize: 24,
-//    //           fontWeight: FontWeight.bold)),
-//    //   bottomNavigationBarTheme:const BottomNavigationBarThemeData(
-//    //     type: BottomNavigationBarType.fixed,
-//    //     selectedItemColor: Colors.deepOrange,
-//    //     elevation: 20,
-//    //   ),
-//    // );
-//    iconBool = false;
-//  }
+ changeIconMode(){
   iconBool = !iconBool;
   emit(ChangeIcon());
- // emit(ChangeMode());
+}
+ bool isDark = false;
+  changemode(){
+  isDark = !isDark;
+  emit(ChangeAppMode());
+  
 }
 }

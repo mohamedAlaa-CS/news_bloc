@@ -8,35 +8,34 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NewsCubit()..getBusiness(),
-      child: BlocConsumer<NewsCubit, NewsStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
+    return BlocConsumer<NewsCubit, NewsStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
 
-          var cubit = NewsCubit.get(context);
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('News App'),
-              actions: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-                IconButton(onPressed: () {
-                  cubit.changeIconMode();
-                                },
-                    icon: Icon(cubit.iconBool ? cubit.iconDark : cubit.iconLight)),
-              ],
-            ),
-            body: cubit.screens[cubit.currentIndex],
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: cubit.currentIndex,
-              onTap: (index) {
-                cubit.changeBottomNavBar(index);
-              },
-              items: cubit.bottomItem,
-            ),
-          );
-        },
-      ),
+        var cubit = NewsCubit.get(context);
+       
+        return Scaffold(
+          appBar: AppBar(
+            title:const Text('News App'),
+            actions: [
+              IconButton(onPressed: () {}, icon:const Icon(Icons.search)),
+              IconButton(onPressed: () {
+                cubit.changeIconMode();
+                cubit.changemode();
+                    },
+                  icon: Icon(cubit.iconBool ? cubit.iconDark : cubit.iconLight)),
+            ],
+          ),
+          body: cubit.screens[cubit.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: cubit.currentIndex,
+            onTap: (index) {
+              cubit.changeBottomNavBar(index);
+            },
+            items: cubit.bottomItem,
+          ),
+        );
+      },
     );
   }
 }

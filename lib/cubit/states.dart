@@ -32,4 +32,4 @@ class NewsGetDataScienceErrorState extends NewsStates{
 }
 
 class ChangeIcon extends NewsStates{}
-class ChangeMode extends NewsStates{}
+class ChangeAppMode extends NewsStates{}
